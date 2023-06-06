@@ -1,9 +1,8 @@
-const axios = require('axios/dist/browser/axios.cjs'); 
 import Notiflix from 'notiflix';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import {form, gallery, loadMoreBtn} from './js/refs.js'
-import {getPhotos} from './js/pixApi.js'
+import {form, gallery, loadMoreBtn} from './js/refs.js';
+import {getPhotos} from './js/pixApi.js';
 
 let page = 1;
 
