@@ -1,3 +1,5 @@
+const axios = require('axios').default;
+
 const BASE_URL = "https://pixabay.com/api/";
 const API_KEY = "37035646-4d5dc8c85e4153b75d2c00d5f";
 
@@ -10,10 +12,11 @@ const searchParams = new URLSearchParams({
 });
 
 export async function getPhotos(name, page) {
-    const response = await fetch(`${BASE_URL}?${searchParams}&q=${name}&page=${page}`)
-    if (!response.ok) {
+    const response = await axios.get(`${BASE_URL}?${searchParams}&q=${name}&page=${page}`)
+
+    if (response.status !== 200) {
         throw new Error("GET failed");
     }
     
-    return response.json();
+    return response.data;
 };
