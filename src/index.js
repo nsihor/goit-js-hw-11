@@ -16,13 +16,18 @@ async function onPictureFind(e) {
 try {
     e.preventDefault();
 
+    const findData = form.elements.searchQuery.value
+
     gallery.innerHTML = ''
 
     loadMoreBtn.hidden = true;
 
     page = 1;
 
-    const findData = form.elements.searchQuery.value
+    if (!findData) {
+        Notiflix.Notify.info("Please enter the text in the field");
+        return;
+    }
 
     const allData = await getPhotos(findData, page);
     const hits = allData.hits;

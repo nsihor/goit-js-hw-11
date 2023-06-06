@@ -17,6 +17,6 @@ export async function getPhotos(name, page) {
     if (response.status !== 200) {
         throw new Error("GET failed");
     }
-    
+
     return response.data;
 };
